@@ -1,0 +1,44 @@
+<h1 class="center-align">Products</h1>
+<h4 class="center-align">You have <span style="color: #26a69a;"><%=Product.count%></span> Products in stock!</h4>
+
+
+<div>
+	<div class="z-depth-3 hello">
+		<table class="bordered responsive-table centered">
+			<thead>
+				<tr>
+					<th data-field="name">Name</th>
+					<th data-field="name">Description</th>
+					<th data-field="email">Price</th>
+					<th data-field="email">Category</th>
+					<th data-field="email">Show</th>
+					<th data-field="email">Edit</th>
+					<th data-field="email">Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @product.each do |product| %>
+				<tr>
+					<td><%= product.name %></td>
+					<td><%= product.description %></td>
+					<td><%= product.pricing %></td>
+					<td><%= product.category.name %></td>
+					<td><a href="/products/<%= product.id %>">Display</a></td>
+					<td><a href="/products/<%= product.id %>/edit">Edit</a></td>
+					<td><a href="/products/confirm/<%= product.id %>">Delete</a></td>
+				</tr>
+			<% end %>
+			</tbody>
+			<a class='waves-effect btn right1' href="/products/new">Add New Product</a>
+		</table>
+		
+	</div>
+</div>
+
+
+
+
+
+
+
+

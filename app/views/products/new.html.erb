@@ -1,0 +1,50 @@
+<h1 class="center-align">Add a new Product!</h1>
+
+<div class="create1">
+	<div class="row">
+		<form class="col s12" action='/products' method='post'>
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+			<div class="row">
+				<div class="input-field col s6">
+					<input type="text" name="name" class="validate">
+					<label for="name">Name</label>
+				</div>
+				<div class="input-field col s6">
+					<input type="text" name="description" class="validate">
+					<label for="description">Product Description</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input type="number" name="pricing" class="validate">
+					<label for="Price">Price</label>
+				</div>
+			</div>
+				<div class="input-field col s12">
+					<select name="@category.id" id="">
+						<option value="" disabled selected>Choose Best Fit</option>
+
+    					<% @categories.each do |category| %>
+
+     			 		<option value="<%= category.id %>" ><%= category.name %></option>
+
+
+    					<% end %>
+  					</select>
+  					<label for="Category">Chose a Category</label>
+				</div>
+			<a class='waves-effect btn red lighten-2 right4' href="/products">Back</a>
+			<input type="submit" value="Create" class="waves-effect btn right2">
+		</form>
+	</div>
+<div>
+<div>
+	<% if flash[:errors] %>
+		<% flash[:errors].each do |error| %>
+			<p style="color:red;"><%= error %></p>
+		<% end %>
+	<% end %>
+</div>
+
+
+						
